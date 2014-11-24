@@ -7,10 +7,15 @@
 	<div class="col-md-4"><button class="btn btn-large btn-block btn-default">Help</button></div>
 	<div class="col-md-8">List those who can help.</div>
 </div>
+<audio autoplay>
+<source src="rsc/thankyou.ogg" type="audio/ogg">
+<source src="rsc/thankyou.mp3" type="audio/mpeg">
+</audio>
 <script type="text/javascript">
-$("body").append("<audio autoplay><source src=http://tts-api.com/tts.mp3?q=" + escape("Thank you. And remember, I am available 24 hours a day, 7 days a week. This is Mike signing off for now. Take care.") + " type=audio/mpeg></audio>");
 var speaker = document.getElementsByTagName("audio");
-for (var i = 0; i < speaker.length; i++) {
-	speaker[i].playbackRate(1.5);
+speaker.oncanplaythrough = function() {
+	setTimeout(function() {
+		speaker.pause();
+	}, 10000);
 }
 </script>

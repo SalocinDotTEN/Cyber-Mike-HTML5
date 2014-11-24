@@ -3,13 +3,7 @@
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="btn btn-danger btn-block btn-lg" id="welcomeNo">No</button>
 </p>
-<script type="text/javascript">
-// $("body").append("<audio autoplay><source src=http://tts-api.com/tts.mp3?q=" + escape("Welcome, my name is Mike. Please stop long enough to listen to me, it will only take about two minutes. I am not a therapist nor a mental health professional. Only someone who cares about you. Are you feeling overwhelmed with thoughts of hurting yourself, or someone else, or are being abused? Please click on or say yes or no.") + " type=audio/mpeg></audio>");
-// var speaker = document.getElementsByTagName("audio");
-// for (var i = 0; i < speaker.length; i++) {
-// 	speaker[i].playbackRate(1.5);
-// }
-$("#welcomeNo").on("click", function() {
-	$("#content").load("ajax-pages/thank-you.html");
-});
-</script>
+<audio autoplay>
+<source src="rsc/welcome.ogg" type="audio/ogg">
+<source src="rsc/welcome.mp3" type="audio/mpeg">
+</audio>
