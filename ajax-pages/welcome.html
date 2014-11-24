@@ -7,3 +7,10 @@
 <source src="rsc/welcome.ogg" type="audio/ogg">
 <source src="rsc/welcome.mp3" type="audio/mpeg">
 </audio>
+<script>
+$(window).load(function() {
+	$("#welcomeNo").on("click", function() {
+		$("#content").load("ajax-pages/thank-you.html");
+	});
+});
+</script>
