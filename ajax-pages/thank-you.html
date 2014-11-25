@@ -1,8 +1,9 @@
 <div class="row"><p>Thank you.</p></div>
 <div class="row">
-	<div class="col-md-4"><a href="#" class="btn btn-large btn-block btn-default">Replay</a></div>
-	<div class="col-md-8">Replay the movie.</div>
+	<div class="col-md-4"><a href="javascript:void(0)" class="btn btn-large btn-block btn-default" onclick="document.location.reload(true)">Reload</a></div>
+	<div class="col-md-8">Reload the app.</div>
 </div>
+<div class="row"><br/></div>
 <div class="row">
 	<div class="col-md-4"><button class="btn btn-large btn-block btn-default">Help</button></div>
 	<div class="col-md-8">List those who can help.</div>
@@ -11,11 +12,3 @@
 <source src="rsc/thankyou.ogg" type="audio/ogg">
 <source src="rsc/thankyou.mp3" type="audio/mpeg">
 </audio>
-<script type="text/javascript">
-var speaker = document.getElementsByTagName("audio");
-speaker.oncanplaythrough = function() {
-	setTimeout(function() {
-		speaker.pause();
-	}, 10000);
-}
-</script>
