@@ -1,16 +1,13 @@
-<p>Are you feeling overwhelmed with thoughts of hurting yourself, or someone else, or are being abused? Please click on or say yes or no.</p>
+<p>Shall I contact someone who can help you immediately?</p>
 <p><button type="button" class="btn btn-success btn-block btn-lg" id="welcomeYes">Yes</button>
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="btn btn-danger btn-block btn-lg" id="welcomeNo">No</button>
 </p>
 <audio autoplay>
-<source src="rsc/welcome.ogg" type="audio/ogg">
-<source src="rsc/welcome.mp3" type="audio/mpeg">
+<source src="rsc/shallicontact.ogg" type="audio/ogg">
+<source src="rsc/shallicontact.mp3" type="audio/mpeg">
 </audio>
 <script type="text/javascript">
-$("#welcomeYes").on("click", function() {
-	$("#content").load("ajax-pages/shallicontact.html");
-});
 $("#welcomeNo").on("click", function() {
 	$("#content").load("ajax-pages/thank-you.html");
 });
