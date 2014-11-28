@@ -3,12 +3,17 @@
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="btn btn-danger btn-block btn-lg" id="welcomeNo">No</button>
 </p>
-<audio autoplay>
-<source src="rsc/shallicontact.ogg" type="audio/ogg">
-<source src="rsc/shallicontact.mp3" type="audio/mpeg">
-</audio>
 <script type="text/javascript">
+var shallicontact = new Howl({
+  urls: ['rsc/shallicontact.mp3', 'rsc/shallicontact.ogg'],
+  autoplay: true,
+  onend: function() {
+    console.log('Finished!');
+  }
+});
+
 $("#welcomeNo").on("click", function() {
+	shallicontact.stop();
 	$("#content").load("ajax-pages/thank-you.html");
 });
 </script>

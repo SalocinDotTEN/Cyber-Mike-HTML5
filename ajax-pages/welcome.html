@@ -19,32 +19,22 @@
 		</p>
 	</div>
 </div>
-<!--<audio autoplay>
-<source src="rsc/welcome.ogg" type="audio/ogg">
-<source src="rsc/welcome.mp3" type="audio/mpeg">
-</audio>-->
 <script>
-// Dynamic for this speaker
-IMG_PATH = 'img/generic_male/';
-AUDIO_PATH = 'parsed/';
-audioId = '96c6c4fdee96c15960979d275d01f3aa.mp3';
-fR = 20;
-visemes =["A.png","B.png","C.png","DD.png","EE.png","F.png","G.png","H.png","D.png","E.png"];
-parsed = [0,0,8,8,1,1,7,7,1,3,3,0,0,0,8,3,3,8,1,2,2,0,0,2,1,0,0,3,3,3,8,1,1,1,0,0,0,0,0,0,0,0,0,0,1,7,7,2,1,1,1,8,3,3,8,0,7,7,5,5,1,2,1,3,3,6,1,3,7,7,2,1,3,3,1,1,3,0,0,1,2,2,2,2,2,1,1,8,2,7,5,5,1,7,7,2,1,2,2,1,3,3,0,4,4,1,1,1,8,8,0,0,2,1,1,2,2,1,1,1,1,0,0,0,0,0,0,0,0,0,8,3,3,3,8,2,2,2,1,1,0,1,3,3,8,1,3,3,1,1,1,8,3,3,0,2,1,1,4,5,5,1,1,3,1,1,8,3,7,2,1,1,7,1,0,1,1,3,3,6,1,1,8,3,3,1,3,3,7,0,0,0,0,0,0,0,0,0,0,0,5,5,1,7,7,2,1,3,3,0,8,8,3,1,2,8,8,1,1,1,1,1,1,8,3,3,0,0,4,1,2,2,2,8,8,8,8,0,0,0,0,0,0,0,0,0,0,8,3,3,1,1,1,8,8,6,6,2,7,7,7,2,1,1,5,5,6,3,8,8,1,1,7,0,1,8,8,2,1,1,5,5,4,1,1,3,3,2,2,2,2,1,2,1,2,5,5,5,4,1,1,1,1,1,1,7,7,7,6,6,5,5,1,1,8,3,3,0,8,8,3,3,1,1,1,1,7,7,1,1,5,5,4,1,1,3,3,1,0,0,1,2,2,1,1,3,3,3,8,0,0,0,0,1,2,2,8,8,8,8,8,8,1,1,1,1,1,0,0,7,7,7,2,1,1,1,7,7,7,2,1,1,5,5,4,1,1,0,5,5,4,1,1,1,2,2,2,2,2,2,1,1,1,1,1,1,1,0,5,5,4,1,1,1,1,4,5,5,5,5,5,5,5,5];
-</script>
-<script type="text/javascript">
+var welcomeSpeech = new Howl({
+  urls: ['rsc/welcome.mp3', 'rsc/welcome.ogg'],
+  autoplay: true,
+  onend: function() {
+    console.log('Finished!');
+  }
+});
+// welcomeSpeech.play();
+
 $("#welcomeYes").on("click", function() {
+	welcomeSpeech.stop();
 	$("#content").load("ajax-pages/shallicontact.html");
 });
 $("#welcomeNo").on("click", function() {
+	welcomeSpeech.stop();
 	$("#content").load("ajax-pages/thank-you.html");
 });
 </script>
-<script type='text/javascript' src='libs/lipSync_SW02.js'></script>
-<script type='text/javascript' src='libs/src/createjs/utils/Proxy.js'></script>
-<script type='text/javascript' src='libs/src/createjs/utils/IndexOf.js'></script>
-<script type='text/javascript' src='libs/src/createjs/events/Event.js'></script>
-<script type='text/javascript' src='libs/src/createjs/events/EventDispatcher.js'></script>
-<script type='text/javascript' src='libs/src/soundjs/Sound.js'></script>
-<script type='text/javascript' src='libs/src/soundjs/WebAudioPlugin.js'></script>
-<script type='text/javascript' src='libs/src/soundjs/HTMLAudioPlugin.js'></script>

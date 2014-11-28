@@ -8,7 +8,12 @@
 	<div class="col-md-4"><button class="btn btn-large btn-block btn-default">Help</button></div>
 	<div class="col-md-8">List those who can help.</div>
 </div>
-<audio autoplay>
-<source src="rsc/thankyou.ogg" type="audio/ogg">
-<source src="rsc/thankyou.mp3" type="audio/mpeg">
-</audio>
+<script type="text/javascript">
+var tqSpeech = new Howl({
+  urls: ['rsc/thankyou.mp3', 'rsc/thankyou.ogg'],
+  autoplay: true,
+  onend: function() {
+    console.log('Finished!');
+  }
+});
+</script>
