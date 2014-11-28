@@ -1,0 +1,71 @@
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+	</div>
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnSuicide">1</button>
+		</div>
+		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+		<p>Please call 1-800-SUICIDE in the USA. (1-800-784-2433).</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnSamaritans">2</button>
+		</div>
+		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+		<p>Send an anonymous e-mail to The Samaritans.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnCovHouse">3</button>
+		</div>
+		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+		<p>Teenagers, call the Covenant House NineLine, 1-800-999-9999.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnCrisiLine">4</button>
+		</div>
+		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+		<p>Look in the front of your physical phone book for a crisis line.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnPsycho">5</button>
+		</div>
+		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+		<p>Call a psychotherapist.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
+		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnFriend">6</button>
+		</div>
+		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+		<p>Carefully choose a friend or a minister, someone who is likely to listen.</p>
+		</div>
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+var shallicontact = new Howl({
+  urls: ['rsc/herearesomeppl.mp3', 'rsc/herearesomeppl.ogg'],
+  autoplay: true,
+  onend: function() {
+    console.log('Completed playing the step three speech');
+  }
+});
+$("#shalliYes").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/here-are-some.html");
+});
+$("#shalliNo").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/thank-you.html");
+});
+</script>
