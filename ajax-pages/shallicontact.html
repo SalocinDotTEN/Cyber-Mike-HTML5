@@ -1,8 +1,14 @@
-<p>Shall I contact someone who can help you immediately?</p>
-<p><button type="button" class="btn btn-success btn-block btn-lg" id="welcomeYes">Yes</button>
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	</div>
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	<p>Shall I contact someone who can help you immediately?</p>
+	<p><button type="button" class="btn btn-success btn-block btn-lg" id="shalliYes">Yes</button>
 	&nbsp;&nbsp;&nbsp;
-	<button type="button" class="btn btn-danger btn-block btn-lg" id="welcomeNo">No</button>
-</p>
+	<button type="button" class="btn btn-danger btn-block btn-lg" id="shalliNo">No</button>
+	</p>
+	</div>
+</div>
 <script type="text/javascript">
 var shallicontact = new Howl({
   urls: ['rsc/shallicontact.mp3', 'rsc/shallicontact.ogg'],
@@ -11,8 +17,11 @@ var shallicontact = new Howl({
     console.log('Completed playing the step two speech');
   }
 });
-
-$("#welcomeNo").on("click", function() {
+$("#shalliYes").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/here-are-some.html");
+});
+$("#shalliNo").on("click", function() {
 	shallicontact.stop();
 	$("#content").load("ajax-pages/thank-you.html");
 });
