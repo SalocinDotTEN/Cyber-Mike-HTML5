@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	</div>
-	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="welcomeText">
 		<p>Are you feeling overwhelmed with thoughts of hurting yourself, or someone else, or are being abused? Please click on or say yes or no.</p>
 		<p><button type="button" class="btn btn-success btn-block btn-lg" id="welcomeYes">Yes</button>
 			&nbsp;&nbsp;&nbsp;
@@ -10,14 +10,15 @@
 	</div>
 </div>
 <script>
+$("#welcomeText").hide();
 var welcomeSpeech = new Howl({
   urls: ['rsc/welcome.mp3', 'rsc/welcome.ogg'],
   autoplay: true,
   onend: function() {
     console.log('Completed playing the welcome speech.');
+    $("#welcomeText").fadeIn("slow");
   }
 });
-// welcomeSpeech.play();
 
 $("#welcomeYes").on("click", function() {
 	welcomeSpeech.stop();
@@ -27,4 +28,31 @@ $("#welcomeNo").on("click", function() {
 	welcomeSpeech.stop();
 	$("#content").load("ajax-pages/thank-you.html");
 });
+
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'yes': yesCommand,
+    'yes please': yesCommand,
+    'no': noCommand,
+    'no thanks': noCommand,
+    'no thank you': noCommand
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+
+  var yesCommand = function() {
+  	welcomeSpeech.stop();
+  	$("#content").load("ajax-pages/shallicontact.html");
+  }
+
+  var noCommand = function() {
+  	welcomeSpeech.stop();
+  	$("#content").load("ajax-pages/thank-you.html");
+  }
+}
 </script>
