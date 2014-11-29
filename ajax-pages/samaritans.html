@@ -2,18 +2,18 @@
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	</div>
 	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-	<p><button type="button" class="btn btn-success btn-block btn-lg" id="shalliYes">Yes I have reached out</button>
+	<p><button type="button" class="btn btn-success btn-block btn-lg" id="shalliYes">Yes I have contacted</button>
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="btn btn-danger btn-block btn-lg" id="shalliNo">No</button>
 	</p>
 	</div>
 </div>
 <script type="text/javascript">
-var afriendindeed = new Howl({
-  urls: ['rsc/afriendindeed.mp3', 'rsc/afriendindeed.ogg'],
+var samaritans = new Howl({
+  urls: ['rsc/samaritans.mp3', 'rsc/samaritans.ogg'],
   autoplay: false,
   onend: function() {
-    console.log('Completed playing a friend in need is a friend indeed.');
+    console.log('Completed playing send email to the samaritans.');
   }
 });
 var chosenwisely = new Howl({
@@ -21,12 +21,12 @@ var chosenwisely = new Howl({
   autoplay: true,
   onend: function() {
     console.log('Completed playing thank you you have chosen wisely.');
-    afriendindeed.play();
+    samaritans.play();
   }
 });
 $("#shalliYes").on("click", function() {
 	chosenwisely.stop();
-	afriendindeed.stop();
+	samaritans.stop();
 	$("#content").load("ajax-pages/thank-you.html");
 });
 </script>

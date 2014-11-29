@@ -2,54 +2,41 @@
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	</div>
 	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-	<div class="row">
-		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnSuicide">1</button>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnSuicide">1 - Please call 1-800-SUICIDE in the USA. (1-800-784-2433).</button>
+			</div>
 		</div>
-		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-		<p>Please call 1-800-SUICIDE in the USA. (1-800-784-2433).</p>
+		<div class="row"><br/></div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnSamaritans">2 - Send an anonymous e-mail to The Samaritans.</button>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnSamaritans">2</button>
+		<div class="row"><br/></div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnCovHouse">3 - Teenagers, call the Covenant House NineLine, 1-800-999-9999.</button>
+			</div>
 		</div>
-		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-		<p>Send an anonymous e-mail to The Samaritans.</p>
+		<div class="row"><br/></div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnCrisisLine">4 - Look in the front of your physical phone book for a crisis line.</button>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnCovHouse">3</button>
+		<div class="row"><br/></div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnPsycho">5 - Call a psychotherapist.</button>
+			</div>
 		</div>
-		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-		<p>Teenagers, call the Covenant House NineLine, 1-800-999-9999.</p>
+		<div class="row"><br/></div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnFriend">6 - Carefully choose a friend or a minister, someone who is likely to listen.</button>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnCrisiLine">4</button>
-		</div>
-		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-		<p>Look in the front of your physical phone book for a crisis line.</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnPsycho">5</button>
-		</div>
-		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-		<p>Call a psychotherapist.</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12">
-		<button type="button" class="btn btn-primary btn-block btn-sm" id="btnFriend">6</button>
-		</div>
-		<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
-		<p>Carefully choose a friend or a minister, someone who is likely to listen.</p>
-		</div>
-	</div>
 	</div>
 </div>
 <script type="text/javascript">
@@ -60,12 +47,28 @@ var shallicontact = new Howl({
     console.log('Completed playing the step three speech');
   }
 });
-$("#shalliYes").on("click", function() {
+$("#btnSuicide").on("click", function() {
 	shallicontact.stop();
-	$("#content").load("ajax-pages/here-are-some.html");
+	$("#content").load("ajax-pages/suicide-line.html");
 });
-$("#shalliNo").on("click", function() {
+$("#btnSamaritans").on("click", function() {
 	shallicontact.stop();
-	$("#content").load("ajax-pages/thank-you.html");
+	$("#content").load("ajax-pages/samaritans.html");
+});
+$("#btnCovHouse").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/covenant-house.html");
+});
+$("#btnCrisisLine").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/phonebook.html");
+});
+$("#btnPsycho").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/psychotherapist.html");
+});
+$("#btnFriend").on("click", function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/friend-in-need.html");
 });
 </script>
