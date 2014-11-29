@@ -30,29 +30,30 @@ $("#welcomeNo").on("click", function() {
 });
 
 if (annyang) {
-  // Let's define our first command. First the text we expect, and then the function it should call
-  var commands = {
-    'yes': yesCommand,
-    'yes please': yesCommand,
-    'no': noCommand,
-    'no thanks': noCommand,
-    'no thank you': noCommand
-  };
+	annyang.setLanguage('en-GB');
+	// Let's define our first command. First the text we expect, and then the function it should call
+	var commands = {
+		'yes': yesCommand,
+		'yes please': yesCommand,
+	    'no': noCommand,
+	    'no thanks': noCommand,
+	    'no thank you': noCommand
+	};
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
+	// Add our commands to annyang
+	annyang.addCommands(commands);
 
-  // Start listening. You can call this here, or attach this call to an event, button, etc.
-  annyang.start();
+	// Start listening. You can call this here, or attach this call to an event, button, etc.
+	annyang.start();
 
-  var yesCommand = function() {
-  	welcomeSpeech.stop();
-  	$("#content").load("ajax-pages/shallicontact.html");
-  }
+	var yesCommand = function() {
+		welcomeSpeech.stop();
+	  	$("#content").load("ajax-pages/shallicontact.html");
+	}
 
-  var noCommand = function() {
-  	welcomeSpeech.stop();
-  	$("#content").load("ajax-pages/thank-you.html");
-  }
+	var noCommand = function() {
+		welcomeSpeech.stop();
+	  	$("#content").load("ajax-pages/thank-you.html");
+	}
 }
 </script>
