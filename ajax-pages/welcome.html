@@ -11,6 +11,14 @@
 </div>
 <script>
 $("#welcomeText").hide();
+var yesCommand = function() {
+	welcomeSpeech.stop();
+  	$("#content").load("ajax-pages/shallicontact.html");
+}
+var noCommand = function() {
+	welcomeSpeech.stop();
+  	$("#content").load("ajax-pages/thank-you.html");
+}
 var welcomeSpeech = new Howl({
   urls: ['rsc/welcome.mp3', 'rsc/welcome.ogg'],
   autoplay: true,
@@ -18,14 +26,6 @@ var welcomeSpeech = new Howl({
     console.log('Completed playing the welcome speech.');
     $("#welcomeText").fadeIn("slow");
 	if (annyang) {
-		var yesCommand = function() {
-			welcomeSpeech.stop();
-		  	$("#content").load("ajax-pages/shallicontact.html");
-		}
-		var noCommand = function() {
-			welcomeSpeech.stop();
-		  	$("#content").load("ajax-pages/thank-you.html");
-		}
 		// Let's define our first command. First the text we expect, and then the function it should call
 		var commands = {
 			'yes': yesCommand,
@@ -42,12 +42,6 @@ var welcomeSpeech = new Howl({
   }
 });
 
-$("#welcomeYes").on("click", function() {
-	welcomeSpeech.stop();
-	$("#content").load("ajax-pages/shallicontact.html");
-});
-$("#welcomeNo").on("click", function() {
-	welcomeSpeech.stop();
-	$("#content").load("ajax-pages/thank-you.html");
-});
+$("#welcomeYes").on("click", yesCommand);
+$("#welcomeNo").on("click", noCommand);
 </script>

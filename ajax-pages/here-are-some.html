@@ -70,7 +70,7 @@ var shallicontact = new Howl({
   autoplay: true,
   onend: function() {
     console.log('Completed playing the step three speech');
-    $("helpMenu").fadeIn("slow");
+    $("#helpMenu").fadeIn("slow");
 	if (annyang) {
 		// Let's define our first command. First the text we expect, and then the function it should call
 		var commands = {

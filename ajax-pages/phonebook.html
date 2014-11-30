@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	</div>
-	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="phonebooktext">
 	<p><button type="button" class="btn btn-success btn-block btn-lg" id="shalliYes">Yes I have checked.</button>
 	&nbsp;&nbsp;&nbsp;
 	<button type="button" class="btn btn-danger btn-block btn-lg" id="shalliNo">No</button>
@@ -9,11 +9,13 @@
 	</div>
 </div>
 <script type="text/javascript">
+$("#phonebooktext").hide();
 var phonebook = new Howl({
   urls: ['rsc/phonebook.mp3', 'rsc/phonebook.ogg'],
   autoplay: false,
   onend: function() {
     console.log('Completed playing a check phonebook.');
+    $("#phonebooktext").fadeIn("slow");
   }
 });
 var chosenwisely = new Howl({
