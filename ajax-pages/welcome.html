@@ -17,6 +17,28 @@ var welcomeSpeech = new Howl({
   onend: function() {
     console.log('Completed playing the welcome speech.');
     $("#welcomeText").fadeIn("slow");
+	if (annyang) {
+		var yesCommand = function() {
+			welcomeSpeech.stop();
+		  	$("#content").load("ajax-pages/shallicontact.html");
+		}
+		var noCommand = function() {
+			welcomeSpeech.stop();
+		  	$("#content").load("ajax-pages/thank-you.html");
+		}
+		// Let's define our first command. First the text we expect, and then the function it should call
+		var commands = {
+			'yes': yesCommand,
+			'yes please': yesCommand,
+		    'no': noCommand,
+		    'no thanks': noCommand,
+		    'no thank you': noCommand
+		};
+		// Add our commands to annyang
+		annyang.addCommands(commands);
+		// Start listening. You can call this here, or attach this call to an event, button, etc.
+		annyang.start();
+	}
   }
 });
 
@@ -28,32 +50,4 @@ $("#welcomeNo").on("click", function() {
 	welcomeSpeech.stop();
 	$("#content").load("ajax-pages/thank-you.html");
 });
-
-if (annyang) {
-	annyang.setLanguage('en-GB');
-	// Let's define our first command. First the text we expect, and then the function it should call
-	var commands = {
-		'yes': yesCommand,
-		'yes please': yesCommand,
-	    'no': noCommand,
-	    'no thanks': noCommand,
-	    'no thank you': noCommand
-	};
-
-	// Add our commands to annyang
-	annyang.addCommands(commands);
-
-	// Start listening. You can call this here, or attach this call to an event, button, etc.
-	annyang.start();
-
-	var yesCommand = function() {
-		welcomeSpeech.stop();
-	  	$("#content").load("ajax-pages/shallicontact.html");
-	}
-
-	var noCommand = function() {
-		welcomeSpeech.stop();
-	  	$("#content").load("ajax-pages/thank-you.html");
-	}
-}
 </script>

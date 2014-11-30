@@ -11,7 +11,7 @@
 		</div>
 		<div class="row"><br/></div>
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn btn-large btn-block btn-default">Help</button></div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn btn-large btn-block btn-default" id="getHelp">Help</button></div>
 			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">List those who can help.</div>
 		</div>
 	</div>
@@ -24,6 +24,33 @@ var tqSpeech = new Howl({
   onend: function() {
     console.log('Completed playing the thank you speech');
     $("#thankYouText").fadeIn("slow");
+	if (annyang) {
+		var reloadCmd = function() {
+			tqSpeech.stop();
+		  	document.location.reload(true);
+		}
+		var helpCmd = function() {
+			tqSpeech.stop();
+		  	$("#content").load("ajax-pages/here-are-some.html");
+		}
+		annyang.setLanguage('en-GB');
+		// Let's define our first command. First the text we expect, and then the function it should call
+		var commands = {
+			'reload': reloadCmd,
+			'reload app': reloadCmd,
+		    'list help': helpCmd,
+		    'get help': helpCmd,
+		    'i want help': helpCmd
+		};
+		// Add our commands to annyang
+		annyang.addCommands(commands);
+		// Start listening. You can call this here, or attach this call to an event, button, etc.
+		annyang.start();
+	}
   }
+});
+$("#getHelp").on("click", function() {
+	tqSpeech.stop();
+	$("#content").load("ajax-pages/here-are-some.html");
 });
 </script>

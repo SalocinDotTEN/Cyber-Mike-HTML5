@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 	</div>
-	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="helpMenu">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<button type="button" class="btn btn-primary btn-block btn-sm pull-left" id="btnSuicide">1 - Please call 1-800-SUICIDE in the USA. (1-800-784-2433).</button>
@@ -40,35 +40,93 @@
 	</div>
 </div>
 <script type="text/javascript">
+$("#helpMenu").hide();
+var oneCommand = function() {
+	shallicontact.stop();
+  	$("#content").load("ajax-pages/suicide-line.html");
+}
+var twoCommand = function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/samaritans.html");
+}
+var threeCommand = function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/covenant-house.html");
+}
+var fourCommand = function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/phonebook.html");
+}
+var fiveCommand = function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/psychotherapist.html");
+}
+var sixCommand = function() {
+	shallicontact.stop();
+	$("#content").load("ajax-pages/friend-in-need.html");
+}
 var shallicontact = new Howl({
   urls: ['rsc/herearesomeppl.mp3', 'rsc/herearesomeppl.ogg'],
   autoplay: true,
   onend: function() {
     console.log('Completed playing the step three speech');
+    $("helpMenu").fadeIn("slow");
+	if (annyang) {
+		// Let's define our first command. First the text we expect, and then the function it should call
+		var commands = {
+			'one': oneCommand,
+			'i feel suicidal': oneCommand,
+			'i want to kill myself': oneCommand,
+			'i feel like killing myself': oneCommand,
+			'i want to take my own life': oneCommand,
+			'i want to die': oneCommand,
+			'suicide line': oneCommand,
+			'call suicide line': oneCommand,
+			'call the suicide line': oneCommand,
+			'two': twoCommand,
+			'the samaritans': twoCommand,
+			'call the samaritans': twoCommand,
+			'e mail the samaritans': twoCommand,
+		    'three': threeCommand,
+		    'covenant house': threeCommand,
+		    'call covenant house': threeCommand,
+		    'nine line': threeCommand,
+		    'call nine line': threeCommand,
+		    'call the nine line': threeCommand,
+		    'four': fourCommand,
+		    'check phone book': fourCommand,
+		    'check the phone book': fourCommand,
+		    'check my phone book': fourCommand,
+		    'check my telephone book': fourCommand,
+		    'check telephone book': fourCommand,
+		    'check the telephone book': fourCommand,
+		    'yellow pages': fourCommand,
+		    'five': fiveCommand,
+		    'psychotherapist': fiveCommand,
+		    'call psychotherapist': fiveCommand,
+		    'call the psychotherapist': fiveCommand,
+		    'six': sixCommand,
+		    'call my friend': sixCommand,
+		    'i just need a friend': sixCommand,
+		    'talk to a friend': sixCommand,
+		    'talk to my folks': sixCommand,
+		    'call my folks': sixCommand,
+		    'tell my folks': sixCommand,
+		    'call my pastor': sixCommand,
+		    'call my guru': sixCommand,
+		    'call my counsellor': sixCommand
+		};
+		// Add our commands to annyang
+		annyang.addCommands(commands);
+		// Start listening. You can call this here, or attach this call to an event, button, etc.
+		annyang.start();
+	}
   }
 });
-$("#btnSuicide").on("click", function() {
-	shallicontact.stop();
-	$("#content").load("ajax-pages/suicide-line.html");
-});
-$("#btnSamaritans").on("click", function() {
-	shallicontact.stop();
-	$("#content").load("ajax-pages/samaritans.html");
-});
-$("#btnCovHouse").on("click", function() {
-	shallicontact.stop();
-	$("#content").load("ajax-pages/covenant-house.html");
-});
-$("#btnCrisisLine").on("click", function() {
-	shallicontact.stop();
-	$("#content").load("ajax-pages/phonebook.html");
-});
-$("#btnPsycho").on("click", function() {
-	shallicontact.stop();
-	$("#content").load("ajax-pages/psychotherapist.html");
-});
-$("#btnFriend").on("click", function() {
-	shallicontact.stop();
-	$("#content").load("ajax-pages/friend-in-need.html");
-});
+$("#btnSuicide").on("click", oneCommand);
+$("#btnSamaritans").on("click", twoCommand);
+$("#btnCovHouse").on("click", threeCommand);
+$("#btnCrisisLine").on("click", fourCommand);
+$("#btnPsycho").on("click", fiveCommand);
+$("#btnFriend").on("click", sixCommand);
 </script>
