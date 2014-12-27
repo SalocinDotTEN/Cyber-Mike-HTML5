@@ -25,18 +25,16 @@ var noCommand = function() {
 var wavesurfer = Object.create(WaveSurfer);
 
 // Init & load
-document.addEventListener('DOMContentLoaded', function () {
-    var options = {
-        container     : '#welcomeLips',
-        waveColor     : '#FFF',
-        interact      : false,
-        cursorWidth   : 0
-    };
-    // Init wavesurfer
-    wavesurfer.init(options);
-    wavesurfer.load("rsc/welcome.mp3");
+wavesurfer.init({
+	container     : '#welcomeLips',
+	waveColor     : 'white',
+	interact      : false,
+	cursorWidth   : 0
 });
-wavesurfer.on('load', wavesurfer.play.bind(wavesurfer));
+wavesurfer.on('ready', function() {
+	wavesurfer.play();
+})
+wavesurfer.load("rsc/welcome.mp3");
 wavesurfer.on('error', function (err) {
     console.error(err);
 });
