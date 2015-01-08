@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-	<div id="welcomeLips"></div>
+	<canvas id="welcomeLips"></canvas>
 	</div>
 	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" id="welcomeText">
 		<p>Are you feeling overwhelmed with thoughts of hurting yourself, or someone else, or are being abused? Please click on or say yes or no.</p>
@@ -11,7 +11,19 @@
 	</div>
 </div>
 <script>
-'use strict';
+// get the context from the canvas to draw on
+var ctx = $("#welcomeLips").get()[0].getContext("2d");
+// create a gradient for the fill. Note the strange
+// offset, since the gradient is calculated based on
+// the canvas, not the specific element we draw
+var gradient = ctx.createLinearGradient(0,0,0,300);
+gradient.addColorStop(1,'#000000');
+gradient.addColorStop(0.75,'#ff0000');
+gradient.addColorStop(0.25,'#ffff00');
+gradient.addColorStop(0,'#ffffff');
+// load the sound
+setupAudioNodes();
+loadSound("rsc/welcome.ogg");
 $("#welcomeText").hide();
 var yesCommand = function() {
 	welcomeSpeech.stop();
@@ -21,30 +33,6 @@ var noCommand = function() {
 	welcomeSpeech.stop();
   	$("#content").load("ajax-pages/thank-you.html");
 }
-// Create an instance
-var wavesurfer = Object.create(WaveSurfer);
-
-// Init & load
-wavesurfer.init({
-	container     : '#welcomeLips',
-	waveColor     : 'white',
-	interact      : false,
-	cursorWidth   : 0
-});
-wavesurfer.on('ready', function() {
-	wavesurfer.play();
-})
-wavesurfer.load("rsc/welcome.mp3");
-wavesurfer.on('error', function (err) {
-    console.error(err);
-});
-// var welcomeSpeech = new Howl({
-//   urls: ['rsc/welcome.mp3', 'rsc/welcome.ogg'],
-//   autoplay: true,
-//   onend: function() {
-//     console.log('Completed playing the welcome speech.');
-//   }
-// });
 $("#welcomeText").fadeIn("slow");
 // if (annyang) {
 // 	// Let's define our first command. First the text we expect, and then the function it should call
